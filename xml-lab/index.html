@@ -50,8 +50,7 @@ fetch("book.xml")
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
 
-        // Step 3: check that the XML is well-formed.
-        // DOMParser puts a <parsererror> element in the document when the XML is broken.
+        // Step 3: check the XML is well-formed (a broken XML gives a <parsererror> element)
         const parseError = xmlDoc.getElementsByTagName("parsererror");
         if (parseError.length > 0) {
             document.getElementById("message").textContent =
