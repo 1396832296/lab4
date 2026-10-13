@@ -20,7 +20,7 @@ from PIL import Image, ImageChops
 
 STUDENT_NAME = "乔润喆"
 STUDENT_ID = "247050"
-GITHUB_NOTE = "https://<your-username>.github.io/lab4-xml-json/"
+GITHUB_NOTE = "https://1396832296.github.io/lab4/"
 
 ROOT = Path(r"C:\Users\13968\Desktop\web developement\Lab4-XML-JSON")
 SHOTS = ROOT / "reports" / "screenshots"
@@ -226,7 +226,8 @@ def build():
     bullet(doc, "页面加载后提示 \u201cThe XML document is well-formed. 5 books found.\u201d，"
                 "5 本书的 id、title、author、price 全部正确显示。")
     figure(doc, SHOTS / "xml-lab.png",
-           "图 1  xml-lab/index.html 运行效果：成功读取并显示 book.xml 中的 5 本书")
+           "图 1  XML 实验运行效果（线上地址：https://1396832296.github.io/lab4/xml-lab/）："
+           "成功读取并显示 book.xml 中的 5 本书")
     body(doc, f"GitHub Pages 链接：{GITHUB_NOTE}xml-lab/", size=10, space_after=14)
 
     doc.add_page_break()
@@ -288,7 +289,8 @@ def build():
     bullet(doc, "页面加载后提示 \u201c4 user profiles loaded.\u201d，4 位用户的姓名、邮箱、出生日期、"
                 "地址以及 theme、language、notifications、subscription 全部正确显示。")
     figure(doc, SHOTS / "json-lab.png",
-           "图 2  json-lab/index.html 运行效果：成功读取并显示 userProfiles.json 中的 4 个用户资料")
+           "图 2  JSON 实验运行效果（线上地址：https://1396832296.github.io/lab4/json-lab/）："
+           "成功读取并显示 userProfiles.json 中的 4 个用户资料")
     body(doc, f"GitHub Pages 链接：{GITHUB_NOTE}json-lab/", size=10, space_after=14)
 
     body(doc, f"备注：上传文件命名要求：Lab4-学号-姓名.doc   ——   本文件："

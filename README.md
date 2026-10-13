@@ -44,15 +44,15 @@ python -m http.server 8765
 Then open <http://127.0.0.1:8765/xml-lab/index.html> and
 <http://127.0.0.1:8765/json-lab/index.html>.
 
-## Publish on GitHub Pages
+## Published on GitHub Pages
 
-1. Create a repository on GitHub, e.g. `lab4-xml-json`.
-2. Upload the whole `Lab4-XML-JSON` folder (keep `index.html` at the top level).
-3. Repository **Settings → Pages → Source: Deploy from a branch**, branch `main`, folder `/ (root)`.
-4. After a minute the site is live at:
-   - `https://<your-username>.github.io/lab4-xml-json/xml-lab/` - XML experiment
-   - `https://<your-username>.github.io/lab4-xml-json/json-lab/` - JSON experiment
-5. Put both links in the report / submission.
+Live site: **<https://1396832296.github.io/lab4/>**
+
+* XML experiment - <https://1396832296.github.io/lab4/xml-lab/>
+* JSON experiment - <https://1396832296.github.io/lab4/json-lab/>
+
+Repository: <https://github.com/1396832296/lab4> (Settings -> Pages -> Deploy from a branch,
+`main` / `(root)`).
 
 ## What the code does (no libraries, only what the lab sheet asks for)
 
