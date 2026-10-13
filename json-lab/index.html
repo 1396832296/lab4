@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profiles (JSON)</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 30px;
+        }
+        h1 {
+            color: #333333;
+        }
+        .profile-item {
+            border: 1px solid #999999;
+            background-color: #ffffff;
+            padding: 12px;
+            margin: 10px 0;
+            max-width: 460px;
+        }
+        .profile-item h2 {
+            font-size: 18px;
+            margin: 0 0 6px 0;
+        }
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Profiles</h1>
+    <p id="message">Loading userProfiles.json ...</p>
+    <div id="profileList"></div>
+
+<script>
+// fetch and parse the JSON data with the fetch API
+fetch('userProfiles.json')
+    .then(response => {
+        if (!response.ok)
+            throw new Error('Fetch error: ' + response.status)
+        else
+            return response.json();
+    })
+    .then(json => {
+        // things we are going to do with the parsed json
+        const outputDiv = document.getElementById("profileList");
+        outputDiv.innerHTML = "";
+
+        json.forEach(function (user) {
+            const div = document.createElement("div");
+            div.className = "profile-item";
+            div.innerHTML = `
+                <h2>${user.firstName} ${user.lastName}</h2>
+                <span class="label">Email:</span> ${user.email}<br>
+                <span class="label">Date of Birth:</span> ${user.dateOfBirth}<br>
+                <span class="label">Address:</span>
+                    ${user.address.street}, ${user.address.city},
+                    ${user.address.state} ${user.address.zipCode}<br>
+                <span class="label">Theme:</span> ${user.preferences.theme}
+                &nbsp;|&nbsp;
+                <span class="label">Language:</span> ${user.preferences.language}
+                &nbsp;|&nbsp;
+                <span class="label">Notifications:</span> ${user.preferences.notifications}
+                &nbsp;|&nbsp;
+                <span class="label">Subscribed:</span> ${user.preferences.subscription}
+            `;
+            outputDiv.appendChild(div);
+        });
+
+        document.getElementById("message").textContent =
+            json.length + " user profiles loaded.";
+    })
+    .catch(err => {
+        console.error('Fetch error: ' + err.message);
+        document.getElementById("message").textContent =
+            "Cannot load the JSON file. " + err.message;
+    });
+</script>
+
+</body>
+</html>

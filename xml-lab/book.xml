@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- book.xml : a simple book catalogue -->
+<bookCatalogue>
+    <book id="B001">
+        <title>Web Development Foundations</title>
+        <author>Jane Smith</author>
+        <price>59.99</price>
+    </book>
+    <book id="B002">
+        <title>Learning JavaScript</title>
+        <author>Michael Brown</author>
+        <price>45.50</price>
+    </book>
+    <book id="B003">
+        <title>XML and JSON in Practice</title>
+        <author>Sarah Johnson</author>
+        <price>72.00</price>
+    </book>
+    <book id="B004">
+        <title>HTML and CSS Design</title>
+        <author>David Wilson</author>
+        <price>38.75</price>
+    </book>
+    <book id="B005">
+        <title>Asynchronous JavaScript with Fetch</title>
+        <author>Emily Chen</author>
+        <price>64.20</price>
+    </book>
+</bookCatalogue>

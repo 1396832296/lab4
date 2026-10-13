@@ -1,0 +1,74 @@
+[
+  {
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "email": "alice.johnson@example.com",
+    "dateOfBirth": "1999-04-12",
+    "address": {
+      "street": "12 Queen Street",
+      "city": "Auckland",
+      "state": "Auckland",
+      "zipCode": "1010"
+    },
+    "preferences": {
+      "theme": "dark",
+      "language": "en",
+      "notifications": true,
+      "subscription": true
+    }
+  },
+  {
+    "firstName": "Bob",
+    "lastName": "Chen",
+    "email": "bob.chen@example.com",
+    "dateOfBirth": "2001-09-30",
+    "address": {
+      "street": "88 Victoria Road",
+      "city": "Wellington",
+      "state": "Wellington",
+      "zipCode": "6011"
+    },
+    "preferences": {
+      "theme": "light",
+      "language": "zh",
+      "notifications": false,
+      "subscription": false
+    }
+  },
+  {
+    "firstName": "Carla",
+    "lastName": "Martinez",
+    "email": "carla.martinez@example.com",
+    "dateOfBirth": "1997-01-25",
+    "address": {
+      "street": "5 Riccarton Avenue",
+      "city": "Christchurch",
+      "state": "Canterbury",
+      "zipCode": "8041"
+    },
+    "preferences": {
+      "theme": "blue",
+      "language": "es",
+      "notifications": true,
+      "subscription": true
+    }
+  },
+  {
+    "firstName": "David",
+    "lastName": "Kim",
+    "email": "david.kim@example.com",
+    "dateOfBirth": "2003-07-08",
+    "address": {
+      "street": "230 Great South Road",
+      "city": "Hamilton",
+      "state": "Waikato",
+      "zipCode": "3204"
+    },
+    "preferences": {
+      "theme": "dark",
+      "language": "ko",
+      "notifications": false,
+      "subscription": true
+    }
+  }
+]

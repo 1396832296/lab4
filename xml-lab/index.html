@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Catalogue (XML)</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 30px;
+        }
+        h1 {
+            color: #333333;
+        }
+        .book-item {
+            border: 1px solid #999999;
+            background-color: #ffffff;
+            padding: 12px;
+            margin: 10px 0;
+            max-width: 420px;
+        }
+        .book-item h2 {
+            font-size: 18px;
+            margin: 0 0 6px 0;
+        }
+        .price {
+            font-weight: bold;
+            color: #0b6623;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Book Catalogue</h1>
+    <p id="message">Loading book.xml ...</p>
+    <div id="bookList"></div>
+
+<script>
+// Step 1: fetch the XML file from the server
+fetch("book.xml")
+    .then(function (response) {
+        if (!response.ok) {
+            throw new Error("Fetch error: " + response.status);
+        }
+        // read the response as raw text (the XML string "xmlText")
+        return response.text();
+    })
+    .then(function (xmlText) {
+        // Step 2: parse the XML string into an XML document
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        // Step 3: check that the XML is well-formed.
+        // DOMParser puts a <parsererror> element in the document when the XML is broken.
+        const parseError = xmlDoc.getElementsByTagName("parsererror");
+        if (parseError.length > 0) {
+            document.getElementById("message").textContent =
+                "The XML document is not well-formed.";
+            return;
+        }
+
+        // Step 4: get all <book> elements
+        const allBooks = xmlDoc.getElementsByTagName("book");
+
+        const outputDiv = document.getElementById("bookList");
+        outputDiv.innerHTML = "";
+
+        // Step 5: loop through each book and show title, author and price
+        for (let i = 0; i < allBooks.length; i++) {
+            const oneBook = allBooks[i];
+
+            const bookId = oneBook.getAttribute("id");
+            const bookTitle = oneBook.querySelector("title").textContent;
+            const bookAuthor = oneBook.querySelector("author").textContent;
+            const bookPrice = oneBook.querySelector("price").textContent;
+
+            const div = document.createElement("div");
+            div.className = "book-item";
+            div.innerHTML = `
+                <h2>${bookTitle}</h2>
+                ID: ${bookId}<br>
+                Author: ${bookAuthor}<br>
+                <span class="price">Price: $${bookPrice}</span>
+            `;
+            outputDiv.appendChild(div);
+        }
+
+        document.getElementById("message").textContent =
+            "The XML document is well-formed. " + allBooks.length + " books found.";
+    })
+    .catch(function (error) {
+        // runs if the file cannot be loaded or parsed
+        console.error("Fetch error: " + error.message);
+        document.getElementById("message").textContent =
+            "Cannot load the XML file. " + error.message;
+    });
+</script>
+
+</body>
+</html>
